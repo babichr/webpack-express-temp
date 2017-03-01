@@ -2,11 +2,9 @@ var path = require('path');
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
 var webpack = require("webpack");
-var webpackDevMiddleware = require("webpack-dev-middleware");
-var webpackHotMiddleware = require("webpack-hot-middleware");
 
 module.exports = {
-	entry: './views/index.js',
+	entry: ['./views/index.js', 'webpack-hot-middleware/client?reload=true'],
 	output: {
 		filename: 'build.js',
 		path: path.resolve(__dirname, "dist"),

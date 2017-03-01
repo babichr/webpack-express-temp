@@ -13,12 +13,15 @@ var Promise = require('mpromise');
 // Webpack + Express
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
+var webpackDevServer = require('webpack-dev-server');
 var webpackDevMiddleware = require("webpack-dev-middleware");
+var webpackHotMiddleware = require("webpack-hot-middleware");
 
 
 var app = express();
 var compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler));
 
 
 //DB connection
